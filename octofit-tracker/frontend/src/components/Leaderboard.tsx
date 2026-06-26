@@ -23,7 +23,7 @@ function Leaderboard({ apiBaseUrl }: LeaderboardProps) {
       setError(null)
 
       try {
-        const data = await fetchJson<LeaderboardEntry>(`${apiBaseUrl}/leaderboard`)
+        const data = await fetchJson<LeaderboardEntry>(`${apiBaseUrl}/leaderboard/`)
         setLeaderboard(data)
       } catch (err) {
         setError((err as Error).message)

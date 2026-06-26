@@ -5,7 +5,7 @@ const router = Router()
 
 router.get('/', async (_req, res) => {
   const users = await User.find().lean()
-  res.json({ users, message: 'Fetch users' })
+  res.json(users)
 })
 
 export default router

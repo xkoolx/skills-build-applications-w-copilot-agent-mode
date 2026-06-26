@@ -23,7 +23,7 @@ function Workouts({ apiBaseUrl }: WorkoutsProps) {
       setError(null)
 
       try {
-        const data = await fetchJson<Workout>(`${apiBaseUrl}/workouts`)
+        const data = await fetchJson<Workout>(`${apiBaseUrl}/workouts/`)
         setWorkouts(data)
       } catch (err) {
         setError((err as Error).message)

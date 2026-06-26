@@ -23,7 +23,7 @@ function Teams({ apiBaseUrl }: TeamsProps) {
       setError(null)
 
       try {
-        const data = await fetchJson<Team>(`${apiBaseUrl}/teams`)
+        const data = await fetchJson<Team>(`${apiBaseUrl}/teams/`)
         setTeams(data)
       } catch (err) {
         setError((err as Error).message)

@@ -10,8 +10,15 @@ export async function fetchJson<T>(url: string): Promise<T[]> {
     return json as T[]
   }
 
-  if (json && typeof json === 'object' && 'data' in json && Array.isArray((json as any).data)) {
-    return (json as any).data as T[]
+  if (json && typeof json === 'object') {
+    if ('data' in json && Array.isArray((json as any).data)) {
+      return (json as any).data as T[]
+    }
+
+    const arrayKey = Object.keys(json).find((key) => Array.isArray((json as any)[key]))
+    if (arrayKey) {
+      return (json as any)[arrayKey] as T[]
+    }
   }
 
   return [json as T]

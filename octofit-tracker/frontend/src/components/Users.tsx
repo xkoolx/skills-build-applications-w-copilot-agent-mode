@@ -23,7 +23,7 @@ function Users({ apiBaseUrl }: UsersProps) {
       setError(null)
 
       try {
-        const data = await fetchJson<User>(`${apiBaseUrl}/users`)
+        const data = await fetchJson<User>(`${apiBaseUrl}/users/`)
         setUsers(data)
       } catch (err) {
         setError((err as Error).message)

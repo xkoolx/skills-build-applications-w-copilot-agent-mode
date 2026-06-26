@@ -5,7 +5,7 @@ const router = Router()
 
 router.get('/', async (_req, res) => {
   const activities = await Activity.find().populate('user').lean()
-  res.json({ activities, message: 'Fetch activities' })
+  res.json(activities)
 })
 
 export default router

@@ -24,7 +24,7 @@ function Activities({ apiBaseUrl }: ActivitiesProps) {
       setError(null)
 
       try {
-        const data = await fetchJson<Activity>(`${apiBaseUrl}/activities`)
+        const data = await fetchJson<Activity>(`${apiBaseUrl}/activities/`)
         setActivities(data)
       } catch (err) {
         setError((err as Error).message)
