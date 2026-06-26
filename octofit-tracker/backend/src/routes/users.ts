@@ -1,9 +1,11 @@
 import { Router } from 'express'
+import User from '../models/user.js'
 
 const router = Router()
 
-router.get('/', (_req, res) => {
-  res.json({ users: [], message: 'Fetch users' })
+router.get('/', async (_req, res) => {
+  const users = await User.find().lean()
+  res.json({ users, message: 'Fetch users' })
 })
 
 export default router

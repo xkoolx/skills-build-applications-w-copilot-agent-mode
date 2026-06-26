@@ -1,9 +1,11 @@
 import { Router } from 'express'
+import Activity from '../models/activity.js'
 
 const router = Router()
 
-router.get('/', (_req, res) => {
-  res.json({ activities: [], message: 'Fetch activities' })
+router.get('/', async (_req, res) => {
+  const activities = await Activity.find().populate('user').lean()
+  res.json({ activities, message: 'Fetch activities' })
 })
 
 export default router
